@@ -1,0 +1,57 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>Login</servlet-name>
+  	<display-name>Login</display-name>
+  	<description></description>
+  	<servlet-class>com.controller.Login</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Logout</servlet-name>
+  	<display-name>Logout</display-name>
+  	<description></description>
+  	<servlet-class>com.controller.Logout</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AddItem</servlet-name>
+  	<display-name>AddItem</display-name>
+  	<description></description>
+  	<servlet-class>com.controller.AddItem</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Register</servlet-name>
+  	<display-name>Register</display-name>
+  	<description></description>
+  	<servlet-class>com.controller.Register</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>DeleteItem</servlet-name>
+  	<display-name>DeleteItem</display-name>
+  	<description></description>
+  	<servlet-class>com.controller.DeleteItem</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Login</servlet-name>
+  	<url-pattern>/Login</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Logout</servlet-name>
+  	<url-pattern>/Logout</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AddItem</servlet-name>
+  	<url-pattern>/AddItem</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Register</servlet-name>
+  	<url-pattern>/Register</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DeleteItem</servlet-name>
+  	<url-pattern>/DeleteItem</url-pattern>
+  </servlet-mapping>
+</web-app>
