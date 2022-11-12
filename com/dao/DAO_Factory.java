@@ -16,6 +16,7 @@ public class DAO_Factory {
 	AuthorDataDAO authorDataDAO = null;
 	StaticVariablesDAO staticVar = null;
 	QuestionDAO quesDAO = null;
+	SubjectiveQDAO subDAO = null;
 	
 	boolean activeConnection = false;
 	
@@ -80,7 +81,18 @@ public class DAO_Factory {
 
 		return quesDAO;
 	}
+	
+	
+	public SubjectiveQDAO getSubDAO() throws Exception
+	{
+		if( activeConnection == false )
+			throw new Exception("Connection not activated...");
 
+		if( subDAO == null )
+			subDAO = new SubjectiveQDAO_JDBC( dbconnection );
+
+		return subDAO;
+	}
 	
 	public void deactivateConnection( TXN_STATUS txn_status )
 	{

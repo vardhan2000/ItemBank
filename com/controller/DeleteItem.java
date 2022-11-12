@@ -21,9 +21,17 @@ public class DeleteItem extends HttpServlet {
 		String qid = request.getParameter("id");
 		
 		HttpSession session = request.getSession();
-		DAO_Factory daoFactory = (DAO_Factory)session.getAttribute("daoFactory");
 		
-		System.out.println("daofac: " + daoFactory);
+		DAO_Factory daoFactory = new DAO_Factory();
+		
+		try {
+			daoFactory.activateConnection();
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+//		System.out.println("daofac: " + daoFactory);
 		
 		QuestionDAO qdao=null;
 		try {
@@ -33,11 +41,11 @@ public class DeleteItem extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		System.out.println("qdao: " + qdao);
+//		System.out.println("qdao: " + qdao);
 		
 		Question ques = qdao.getQuestion(qid);
 		
-		System.out.println("ques: " + ques); // print
+//		System.out.println("ques: " + ques); // print
 		
 		String aid = ques.getAuthorId();
 		
@@ -50,7 +58,7 @@ public class DeleteItem extends HttpServlet {
 		}
 		AuthorData author = adao.getAuthorById(aid);
 		
-		System.out.println("author: " + author); // print
+//		System.out.println("author: " + author); // print
 		
 		String uname = (String) session.getAttribute("username");
 		
@@ -59,13 +67,16 @@ public class DeleteItem extends HttpServlet {
 		if(author.getUsername().equals(uname)) 
 		{
 			qdao.deleteQuestion(ques);
-			session.setAttribute("daoFactory", daoFactory);
+			
+			daoFactory.deactivateConnection(DAO_Factory.TXN_STATUS.COMMIT);
+			
+//			session.setAttribute("daoFactory", daoFactory);
 			response.sendRedirect("authorhome.jsp");
 		}
 		
 		else 
 		{
-			session.setAttribute("daoFactory", daoFactory);
+			// session.setAttribute("daoFactory", daoFactory);
 			out.print("You are not the author of this question!");
 		}
 	}

@@ -21,18 +21,13 @@ public class Login extends HttpServlet {
 		String pass = request.getParameter("pass");
 		
 		HttpSession session = request.getSession();
-		DAO_Factory daoFactory = (DAO_Factory)session.getAttribute("daoFactory");
-		
-		if(daoFactory==null) 
-		{
-			daoFactory = new DAO_Factory();
-		}
+		DAO_Factory daoFactory = new DAO_Factory();
 		
 		try {
 			if(is_authentic(uname, pass, daoFactory)) 
 			{
 				session.setAttribute("username", uname);
-				session.setAttribute("daoFactory", daoFactory);
+//				session.setAttribute("daoFactory", daoFactory);
 				response.sendRedirect("authorhome.jsp");
 			}
 			
@@ -55,7 +50,9 @@ public class Login extends HttpServlet {
 		daoFactory.activateConnection();
 		AuthorDataDAO dao = daoFactory.getAuthorDataDAO();
 		AuthorData author = dao.getAuthor(uname);
-//		daoFactory.deactivateConnection(DAO_Factory.TXN_STATUS.COMMIT);
+		
+		daoFactory.deactivateConnection(DAO_Factory.TXN_STATUS.COMMIT);
+		
 		return (author.getUsername().equals(uname) && author.getPassword().equals(pass));
 	}
 

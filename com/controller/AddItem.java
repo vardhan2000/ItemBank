@@ -17,7 +17,7 @@ public class AddItem extends HttpServlet {
 		DAO_Factory daoFactory = (DAO_Factory) session.getAttribute("daoFactory");
 		
 		String itemType = request.getParameter("type"); 
-		System.out.println(daoFactory);
+//		System.out.println(daoFactory);
 		
 		if(itemType.equals("sub")) {
 			response.sendRedirect("addSubjective.jsp");

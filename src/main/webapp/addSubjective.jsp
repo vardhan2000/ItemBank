@@ -22,7 +22,7 @@
 	
 	<h3>Add subjective question</h3>
 	
-	<form>
+	<form action="AddSubjective" method="post" >
 	    <label for="domain">Question Domain:</label><br>
 	    <input type="domain" id="domain" name="domain"><br>
 	    <label for="text">Question text:</label><br>

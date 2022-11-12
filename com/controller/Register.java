@@ -45,7 +45,7 @@ public class Register extends HttpServlet {
 		
 		AuthorData author = new AuthorData(aid, uname, pass, mail);
 		
-		System.out.println(author);
+//		System.out.println(author);
 		
 		AuthorDataDAO dao=null;
 		try {
