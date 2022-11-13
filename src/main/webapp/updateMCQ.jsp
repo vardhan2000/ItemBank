@@ -20,9 +20,9 @@
 		}
 	%>
 	
-	<h3>Add objective question</h3>
+	<h3>Update objective question</h3>
 	
-		<form action="AddMCQ" method="post" >
+		<form>
 	    <label for="domain">Question Domain:</label><br>
 	    <input type="text" id="domain" name="domain"><br>
 	    <label for="text">Question text:</label><br>

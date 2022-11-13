@@ -46,6 +46,24 @@
   	<description></description>
   	<servlet-class>com.controller.AddMCQ</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>UpdateItem</servlet-name>
+  	<display-name>UpdateItem</display-name>
+  	<description></description>
+  	<servlet-class>com.controller.UpdateItem</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>UpdateSubjective</servlet-name>
+  	<display-name>UpdateSubjective</display-name>
+  	<description></description>
+  	<servlet-class>com.controller.UpdateSubjective</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>UpdateMCQ</servlet-name>
+  	<display-name>UpdateMCQ</display-name>
+  	<description></description>
+  	<servlet-class>com.controller.UpdateMCQ</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>Login</servlet-name>
   	<url-pattern>/Login</url-pattern>
@@ -73,5 +91,17 @@
   <servlet-mapping>
   	<servlet-name>AddMCQ</servlet-name>
   	<url-pattern>/AddMCQ</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UpdateItem</servlet-name>
+  	<url-pattern>/UpdateItem</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UpdateSubjective</servlet-name>
+  	<url-pattern>/UpdateSubjective</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UpdateMCQ</servlet-name>
+  	<url-pattern>/UpdateMCQ</url-pattern>
   </servlet-mapping>
 </web-app>

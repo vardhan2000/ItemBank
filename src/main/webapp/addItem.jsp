@@ -20,7 +20,7 @@
 		}
 	%>
 	
-	<h1>Add Item</h1>
+	<h1>Update Item</h1>
 	<h3>Select the type of question you want to add</h3>
 	
 	<form action="AddItem" method="post" >
@@ -32,30 +32,6 @@
 		<button>Submit</button>
 	</form>
 	
-
-<!-- 	<br/> -->
-<!-- 	<br/> -->
-	
-<!-- 	<form> -->
-<!-- 	    <label for="domain">Question Domain:</label><br> -->
-<!-- 	    <input type="domain" id="domain" name="domain"><br> -->
-<!-- 	    <label for="text">Question text:</label><br> -->
-<!-- 	    <input type="text" id="text" name="text"><br> -->
-	
-<!-- 	    <label for="options">Number of options:</label><br> -->
-<!-- 	    <input type="number" id="options" name="options" min="1" max="5"><br> -->
-<!-- 	    <label for="text">Option 1:</label><br> -->
-<!-- 	    <input type="text" id="text" name="text"><br> -->
-<!-- 	    <label for="text">Option 2:</label><br> -->
-<!-- 	    <input type="text" id="text" name="text"><br> -->
-<!-- 	    <label for="text">Option 3:</label><br> -->
-<!-- 	    <input type="text" id="text" name="text"><br> -->
-	
-<!-- 	    <label for="answer">Answer:</label><br> -->
-<!-- 	    <input type="answer" id="answer" name="answer"><br> -->
-	
-<!-- 	    <button>Submit</button> -->
-<!-- 	</form> -->
 
 	<br> <br>
 	<form action="Logout">

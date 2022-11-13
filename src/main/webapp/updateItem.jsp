@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>IOAES</title>
+<title>OAES</title>
 </head>
 <body>
 	<%
@@ -20,35 +20,20 @@
 		}
 	%>
 	
-	<form>
-		<label for="domain">Question type:</label><br>
-	    <select name="type" id="type">
-	        <option value="sub">Subjective</option>
-	        <option value="mcq">MCQ</option>
-	    </select>
-	    <br>
+	<h1>Update Item</h1>
+	<h3>Select the type of question you want to update</h3>
 	
-	    <label for="domain">Question Domain:</label><br>
-	    <input type="domain" id="domain" name="domain"><br>
-	    <label for="text">Question text:</label><br>
-	    <input type="text" id="text" name="text"><br>
-	
-	    <!-- <label for="options">Number of options:</label><br>
-	    <input type="number" id="options" name="options" min="1" max="5"><br>
-	    <label for="text">Option 1:</label><br>
-	    <input type="text" id="text" name="text"><br>
-	    <label for="text">Option 2:</label><br>
-	    <input type="text" id="text" name="text"><br>
-	    <label for="text">Option 3:</label><br>
-	    <input type="text" id="text" name="text"><br> -->
-	
-	    <label for="answer">Answer:</label><br>
-	    <input type="answer" id="answer" name="answer"><br>
-	
-	    <button>Submit</button>
+	<form action="UpdateItem" method="post" >
+		<select name="type" id="type">
+		    <option value="sub">Subjective</option>
+		    <option value="mcq">MCQ</option>
+		</select>
+		<br>
+		<button>Submit</button>
 	</form>
-	    
-	<br/> <br/>
+	
+
+	<br> <br>
 	<form action="Logout">
 		<input type="submit" value="Logout" >
 	</form>
