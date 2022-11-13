@@ -18,6 +18,7 @@ public class DAO_Factory {
 	QuestionDAO quesDAO = null;
 	SubjectiveQDAO subDAO = null;
 	QuestionVersionDAO quesVersionDAO = null;
+	MultipleCQDAO mcqDAO = null;
 	
 	boolean activeConnection = false;
 	
@@ -104,6 +105,17 @@ public class DAO_Factory {
 			subDAO = new SubjectiveQDAO_JDBC( dbconnection );
 
 		return subDAO;
+	}
+	
+	public MultipleCQDAO getMCQDAO() throws Exception
+	{
+		if( activeConnection == false )
+			throw new Exception("Connection not activated...");
+
+		if( mcqDAO == null )
+			mcqDAO = new MultipleCQDAO_JDBC( dbconnection );
+
+		return mcqDAO;
 	}
 	
 	public void deactivateConnection( TXN_STATUS txn_status )

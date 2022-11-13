@@ -14,17 +14,10 @@ public class Logout extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
     	HttpSession session = request.getSession();
-    	System.out.println(session);
-//    	DAO_Factory daoFactory = (DAO_Factory) session.getAttribute("daoFactory");
     	String uname = (String) session.getAttribute("username");
-    	
-//    	System.out.println(daoFactory);
-//    	System.out.println(uname);
-    	
-//    	daoFactory.deactivateConnection(DAO_Factory.TXN_STATUS.COMMIT);
-		
+    			
     	session.removeAttribute("username");
-//		session.removeAttribute("daoFactory");
+		session.removeAttribute("authorId");
 		session.invalidate();
 		response.sendRedirect("home.jsp");
 	

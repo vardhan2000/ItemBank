@@ -22,18 +22,20 @@
 	
 	<h3>Add objective question</h3>
 	
-		<form>
+		<form action="AddMCQ" method="post" >
 	    <label for="domain">Question Domain:</label><br>
 	    <input type="domain" id="domain" name="domain"><br>
 	    <label for="text">Question text:</label><br>
-	    <input type="text" id="text" name="text"><br>
+	    <input type="text" id="text" name="text"><br><br>
 	
 	    <label for="text">Option 1:</label><br>
-	    <input type="text" id="text" name="text"><br>
+	    <input type="text" id="text" name="opt1"><br>
 	    <label for="text">Option 2:</label><br>
-	    <input type="text" id="text" name="text"><br>
+	    <input type="text" id="text" name="opt2"><br>
 	    <label for="text">Option 3:</label><br>
-	    <input type="text" id="text" name="text"><br>
+	    <input type="text" id="text" name="opt3"><br>
+	    <label for="text">Option 4:</label><br>
+	    <input type="text" id="text" name="opt4"><br> <br>
 	
 	    <label for="answer">Answer:</label><br>
 	    <input type="answer" id="answer" name="answer"><br>
