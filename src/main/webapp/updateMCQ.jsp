@@ -22,7 +22,10 @@
 	
 	<h3>Update objective question</h3>
 	
-		<form>
+		<form action="UpdateMCQ" method="post" >
+		<label for="id">Question ID:</label><br>
+	    <input type="text" id="id" name="id"><br> <br>
+		
 	    <label for="domain">Question Domain:</label><br>
 	    <input type="text" id="domain" name="domain"><br>
 	    <label for="text">Question text:</label><br>
