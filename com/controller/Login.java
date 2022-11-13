@@ -1,6 +1,7 @@
 package com.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,17 +24,25 @@ public class Login extends HttpServlet {
 		HttpSession session = request.getSession();
 		DAO_Factory daoFactory = new DAO_Factory();
 		
+		PrintWriter out = response.getWriter();
+		
 		try {
 			if(is_authentic(uname, pass, daoFactory)) 
 			{
 				session.setAttribute("username", uname);
-//				session.setAttribute("daoFactory", daoFactory);
+				AuthorDataDAO dao = daoFactory.getAuthorDataDAO();
+				AuthorData author = dao.getAuthor(uname);
+				String aid = author.getId();
+				session.setAttribute("authorId", aid);
+				
+				daoFactory.deactivateConnection(DAO_Factory.TXN_STATUS.COMMIT);
 				response.sendRedirect("authorhome.jsp");
 			}
 			
 			else 
 			{
-				response.sendRedirect("login.jsp");
+				daoFactory.deactivateConnection(DAO_Factory.TXN_STATUS.COMMIT);
+				out.print("Invalid credentials");
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -50,8 +59,6 @@ public class Login extends HttpServlet {
 		daoFactory.activateConnection();
 		AuthorDataDAO dao = daoFactory.getAuthorDataDAO();
 		AuthorData author = dao.getAuthor(uname);
-		
-		daoFactory.deactivateConnection(DAO_Factory.TXN_STATUS.COMMIT);
 		
 		return (author.getUsername().equals(uname) && author.getPassword().equals(pass));
 	}

@@ -14,7 +14,6 @@ public class AddItem extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession session = request.getSession();
-		DAO_Factory daoFactory = (DAO_Factory) session.getAttribute("daoFactory");
 		
 		String itemType = request.getParameter("type"); 
 //		System.out.println(daoFactory);

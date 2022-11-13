@@ -31,8 +31,6 @@ public class DeleteItem extends HttpServlet {
 			e1.printStackTrace();
 		}
 		
-//		System.out.println("daofac: " + daoFactory);
-		
 		QuestionDAO qdao=null;
 		try {
 			qdao = daoFactory.getQuestionDAO();
@@ -41,43 +39,31 @@ public class DeleteItem extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-//		System.out.println("qdao: " + qdao);
-		
 		Question ques = qdao.getQuestion(qid);
 		
-//		System.out.println("ques: " + ques); // print
-		
-		String aid = ques.getAuthorId();
-		
-		AuthorDataDAO adao=null;
-		try {
-			adao = daoFactory.getAuthorDataDAO();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		AuthorData author = adao.getAuthorById(aid);
-		
-//		System.out.println("author: " + author); // print
-		
-		String uname = (String) session.getAttribute("username");
-		
+		String aid = (String) session.getAttribute("authorId");
 		PrintWriter out = response.getWriter();
 		
-		if(author.getUsername().equals(uname)) 
+		if(ques.getAuthorId().equals(aid)) 
 		{
-			qdao.deleteQuestion(ques);
+			if(ques.getStatus().equals("ACTIVE")) 
+			{
+				qdao.deleteQuestion(ques);
+				out.print("Question deleted successfully");
+			}
+			
+			else 
+			{
+				out.print("You are trying to delete an already deleted question.");
+			}
 			
 			daoFactory.deactivateConnection(DAO_Factory.TXN_STATUS.COMMIT);
-			
-//			session.setAttribute("daoFactory", daoFactory);
-			response.sendRedirect("authorhome.jsp");
 		}
 		
 		else 
 		{
-			// session.setAttribute("daoFactory", daoFactory);
 			out.print("You are not the author of this question!");
+			daoFactory.deactivateConnection(DAO_Factory.TXN_STATUS.COMMIT);
 		}
 	}
 

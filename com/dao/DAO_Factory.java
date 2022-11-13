@@ -17,6 +17,7 @@ public class DAO_Factory {
 	StaticVariablesDAO staticVar = null;
 	QuestionDAO quesDAO = null;
 	SubjectiveQDAO subDAO = null;
+	QuestionVersionDAO quesVersionDAO = null;
 	
 	boolean activeConnection = false;
 	
@@ -80,6 +81,17 @@ public class DAO_Factory {
 			quesDAO = new QuestionDAO_JDBC( dbconnection );
 
 		return quesDAO;
+	}
+	
+	public QuestionVersionDAO getQuestionVersionDAO() throws Exception
+	{
+		if( activeConnection == false )
+			throw new Exception("Connection not activated...");
+
+		if( quesVersionDAO == null )
+			quesVersionDAO = new QuestionVersionDAO_JDBC( dbconnection );
+
+		return quesVersionDAO;
 	}
 	
 	
